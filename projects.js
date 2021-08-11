@@ -1,14 +1,8 @@
 console.log("Team Project")
-import { renderToDom } from "./render-to-dom.js";
+import { renderToDom } from "./common-dom-functions.js";
 
 //empty array to store projects entered
 const projects = [];
-
-//Button for Creating a Project
-const button = () => {
-    const btnString = `<button type="button" id ="create" class="btn btn-success">Create a Project</button>`;
-    renderToDom("#buttonContainer", btnString);
-};
 
 //function for the project form
 const newProjectForm = () => {
@@ -46,16 +40,17 @@ const newProjectForm = () => {
 
 // function to loop through project arrray and display project cards
 const projectBuilder = (array) => {
-    let proCardHeader = `<div class="card-header">Projects List</div>`;
-    renderToDom("#cardHeaderContainer", proCardHeader)
+    let proCardHeader = ``;
+
     let proCard = "";
     array.forEach((project, i) => {
-        proCard += `<div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">${project.proName}</h5>
-                            <p class="card-text">${project.proDescription}</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
+        proCard += `<div class="card-header">Projects List</div>
+                    <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${project.proName}</h5>
+                        <p class="card-text">${project.proDescription}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
                     </div>`;
     });
 
@@ -65,9 +60,6 @@ const projectBuilder = (array) => {
 
 //function to run for when the button is clicked
 const buttonEvent = (event) => {
-    if (event.target.id === "create" || event.target.id === "buttonContainer") {
-        newProjectForm();
-    }
     if (event.target.id === "createProjectBtnSubmit" || event.target.id === "formContainer") {
         submitProjectForm();
     }
@@ -88,15 +80,13 @@ const submitProjectForm = (event) => {
 
 //event listeners for the buttons
 const eventListener = () => {
-    const buttonEl = document.querySelector("#buttonContainer");
-    buttonEl.addEventListener("click", buttonEvent);
     const formEl = document.querySelector("#formContainer");
     formEl.addEventListener("submit", submitProjectForm);
 };
 
 //function to hold all functions
 const loadPage = () => {
-    button();
+    newProjectForm();
     eventListener();
 };
 loadPage();

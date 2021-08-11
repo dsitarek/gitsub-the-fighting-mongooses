@@ -1,31 +1,31 @@
 const renderToDom = (divId, textToPrint) => {
-  const selectedDiv = document.querySelector(divId);
-  selectedDiv.innerHTML = textToPrint;
+    const selectedDiv = document.querySelector(divId);
+    selectedDiv.innerHTML = textToPrint;
 };
 
 const renderCards = (arr, cardString) => {
-  let domString = "";
-  arr.forEach((obj, index) => {
-    domString += cardString(obj, index);
-  });
-  renderToDom("#cardContainer", domString);
+    let domString = "";
+    arr.forEach((obj, index) => {
+        domString += cardString(obj, index);
+    });
+    renderToDom("#cardContainer", domString);
 };
 
 const formSubmitListener = (formId, funcToRun) => {
-  document
-    .querySelector(formId)
-    .addEventListener("submit", (event) => funcToRun(event));
+    document
+        .querySelector(formId)
+        .addEventListener("submit", (event) => funcToRun(event));
 };
 
-const renderForm = (formString, listenFunc) => {
-  const domString = formString;
+const renderForm = (formString, listenFunc, formId) => {
+    const domString = formString;
 
-  renderToDom("#formContainer", domString);
-  formSubmitListener("#addRepoForm", listenFunc);
+    renderToDom("#formContainer", domString);
+    formSubmitListener("formId", listenFunc);
 };
 
 const renderNavbar = () => {
-  const domString = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    const domString = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,6 +50,6 @@ const renderNavbar = () => {
     </div>
   </nav>`;
 
-  renderToDom("#navbarContainer", domString);
+    renderToDom("#navbarContainer", domString);
 };
 export { renderCards, renderForm, renderToDom, renderNavbar };

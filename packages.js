@@ -1,4 +1,5 @@
 console.log("We got this!");
+const cards = []
 import { renderToDom } from "./render-to-dom.js";
 const packages = [
     {
@@ -33,99 +34,71 @@ const packages = [
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsPqI77QdRPZWFyEPvrErzeKYYOtfwvwYBoA&usqp=CAU"
     }
 ];
+ //Display the packages card to the DOM
+ const cardsContainer = () => {
+    const domString = `<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Docker</h5>
+      <p class="card-text">A software platform used for building applications based on containers - small and lightweight execution environments.</p>
+      <a href="https://hub.docker.com/" class="btn btn-primary">Learn More</a>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Apache Maven</h5>
+      <p class="card-text">A default package manager used for the java programming langauge and the java runtime environment</p>
+      <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">NuGet</h5>
+      <p class="card-text">A free and open source package manager used for the Microsoft development platforms including .NET.</p>
+      <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">RubyGems</h5>
+      <p class="card-text">A standard format for distributing Ruby Programs and libraries used for the Ruby programming language</p>
+      <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">npm</h5>
+      <p class="card-text">A package manager for Javascript, included with Node.js. npm makes it easy for developers to share and reuse code. </p>
+      <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Containers</h5>
+      <p class="card-text">A single place for your team to manage Docker images and decide who can see and access your images</p>
+      <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+  </div>
+    `;
+    renderToDom("#cardsContainer", domString);
+ };
 
  // display form on the DOM
  const packagesForm = () => {
     const domString = `
 <form>
   <div class="mb-3">
-    <h3 strong <label for="exampleInputEmail1" class="form-label">Create a new package</label></h3><br>
+    <h3 strong <label for="exampleInputEmail1" class="form-label">Create a new package</label></h3>
     <label for="notes" class="form-label">Coordinate, track, and update your work in one place, so packages stay transparent and on schedule</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <h6 <label for="projectBoardName" class="form-label">Project board name</label></h6>
+    <input type="text" class="form-control" id="enterPackage" aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Description (optional)</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input type="password" class="form-control" id="enterDescription">
   </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  
+  <button type="submit" class="btn btn-primary" id:"submitButton" background-color:"green" >Create project</button>
 </form>
 `;
 renderToDom("#packagesForm", domString);
  };
 
- const packageBuilder = (packageArray) => {
-    let domString = "";
-    packageArray.forEach((newpackage, i) => {
-      domString += `<div class="row">
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      `;
-    });
-  
-    renderToDom("#cardsContainer", domString);
-  };
+
  const init = () => {
     // this starts the app
-    packagesForm();
     cardsContainer();
+    packagesForm();
   };
   
   init();

@@ -1,41 +1,34 @@
-import { renderToDom } from "./render-to-dom.js"
+import { renderForm, renderToDom, renderCards} from "./common-dom-functions.js"
 //display form on DOM 
-const renderPinForm = () => {
-    const domString = `
-     
-    <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Create a new project</h5>
-       <p class="card-text text-muted"Card subtitletext-muted"Card subtitle">Coordinate, track and update your work in one place, so projects stay transparent and on schedule.</p>
-       <div class="card">
-       <div class="card" style="width: 18rem;">
+const pinFormString = `<form id = "pinForm">
+<div class="mb-3">
+  <label for="exampleInputEmail1" class="form-label">Email address</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 </div>
-
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Project board name</h5>
-    <h6 class="card-subtitle mb-2 text-muted"> Example 2</h6>
-  
-    <label for="Description" class="form-label">Description</label>
-    <input required type="text" class="form-control" id="Description">
-  </div>
-  <a href="#" class="btn btn-primary">Create Project</a>
-       </div>
-  </div>
- 
-  </div>
+<div class="mb-3">
+  <label for="exampleInputPassword1" class="form-label">Password</label>
+  <input type="password" class="form-control" id="exampleInputPassword1">
 </div>
-  
+<div class="mb-3 form-check">
+  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>`
+    
+    //add push to array function 
+    //Have the form and the div & project you want 
 
-</form>
-`;
-    renderToDom("#pinContainer", domString); //this will be a module 
-};
+
+
+
+
 
 
 const init = () => {
-    // this starts the app
-    renderPinForm(); // PUT DOM ELEMENTS FIRST
+ renderForm (pinFormString, arrayxxx, "#pinForm" )
+   
 };
 init();
 

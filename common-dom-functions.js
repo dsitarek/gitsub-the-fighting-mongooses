@@ -17,11 +17,11 @@ const formSubmitListener = (formId, funcToRun) => {
     .addEventListener("submit", (event) => funcToRun(event));
 };
 
-const renderForm = (formString, listenFunc) => {
+const renderForm = (formString, listenFunc, formId) => {
   const domString = formString;
 
   renderToDom("#formContainer", domString);
-  formSubmitListener("#addRepoForm", listenFunc);
+  formSubmitListener(formId, listenFunc);
 };
 
 const renderNavbar = () => {

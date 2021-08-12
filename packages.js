@@ -62,7 +62,7 @@ import { handleFormSubmit, packageFormEvents, handleButtonClick, buttonEvents} f
        <input required="optional" type="text" class="form-control" id="enterDescription">
      </div>
      
-     <button type="submit" class="btn btn-primary" id:"submit" background-color:"green" >Create package</button>
+     <button type="submit" class="btn btn-primary" id="submit" background-color:"green" >Create package</button>
    </form>
    `;
    renderToDom("#formContainer", domstring);

@@ -1,34 +1,51 @@
-import { renderForm, renderToDom, renderCards} from "./common-dom-functions.js"
-//display form on DOM 
+import { renderForm, renderToDom, renderCards, renderNavbar} from "./common-dom-functions.js"
+import {repoArray} from "./data.js"
+//const pinArray = []; //why am I creating this array
+
+//Creating my form 
 const pinFormString = `<form id = "pinForm">
-<div class="mb-3">
-  <label for="exampleInputEmail1" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+ <form>
+  <label for="pinName">Pinned Repo Name:</label><br>
+  <input required type="text" id ="pinName" class="form-control"><br>
+  <label for="pinDescription">Description:</label><br> 
+  <input required type="text" id ="pinDescription" class="form-control"><br>
+  <button type="submit" class="btn btn-primary" id="addPinButton">Create Pinned Repo</button>  
+  </form>
+  `;
+
+const pinCardString = (obj, index) => {
+  return `<div class="card" id = "card-${index}" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">${obj.name}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${obj.description}</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
 </div>
-<div class="mb-3">
-  <label for="exampleInputPassword1" class="form-label">Password</label>
-  <input type="password" class="form-control" id="exampleInputPassword1">
-</div>
-<div class="mb-3 form-check">
-  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-</div>
-<button type="submit" class="btn btn-primary">Submit</button>
-</form>`
-    
-    //add push to array function 
-    //Have the form and the div & project you want 
 
+`};
+ // To do: style this card 
 
+//this is the input to the form 
+const addPinnedRepo = (event) => {
+  event.preventDefault();
+  const pinName = document.getElementById("pinName").value;
+  const pinDescription = document.getElementById("pinDescription").value;
 
-
-
+  const pinnedRepoObject = {
+    name: pinName,
+    description: pinDescription
+  };
+  repoArray.push(pinnedRepoObject);
+  renderCards(repoArray, pinCardString)
+};
 
 
 const init = () => {
- renderForm (pinFormString, arrayxxx, "#pinForm" )
-   
+  renderForm(pinFormString, addPinnedRepo, "#pinForm")
+  renderCards(repoArray, pinCardString)
+  renderNavbar()
 };
 init();
 

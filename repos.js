@@ -20,9 +20,13 @@ const addRepo = (event) => {
   renderCards(repoArray, repoCardString);
 };
 
+const renderUserDropdown = () => {
+  document.getElementById("userContainer").in;
+};
+
 const init = () => {
   renderCards(repoArray, repoCardString);
-  renderForm(repoFormString, addRepo);
+  renderForm(repoFormString, addRepo, "#addRepoForm");
   renderNavbar();
 };
 

@@ -1,3 +1,5 @@
+import { users } from "./data.js";
+
 const renderToDom = (divId, textToPrint) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = textToPrint;
@@ -17,14 +19,38 @@ const formSubmitListener = (formId, funcToRun) => {
     .addEventListener("submit", (event) => funcToRun(event));
 };
 
-const renderForm = (formString, listenFunc) => {
+const renderForm = (formString, listenFunc, formId) => {
   const domString = formString;
 
   renderToDom("#formContainer", domString);
-  formSubmitListener("#addRepoForm", listenFunc);
+  formSubmitListener(formId, listenFunc);
+};
+
+const collectUsers = (userObj) => {
+  let userString = "";
+  Object.keys(userObj).forEach((user) => {
+    userString += `<option value="${user}">${user}</option>`;
+  });
+  return userString;
+};
+
+const renderUser = () => {
+  const userSelected = document.getElementById("userDropdown").value;
+  const domString = `<div class="card">
+  <img src="#" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5>${users[userSelected].name}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>`;
+
+  renderToDom("#userContainer", domString);
+  console.log(userSelected);
 };
 
 const renderNavbar = () => {
+  let userString = collectUsers(users);
   const domString = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
@@ -45,11 +71,22 @@ const renderNavbar = () => {
           <li class="nav-item">
             <a class="nav-link" href="packages.html">Packages</a>
           </li>
+          <li>
+          <select
+          class="form-select user-dropdown"
+          id="userDropdown">
+          ${userString}
+        </select>
+
         </ul>
       </div>
     </div>
   </nav>`;
 
   renderToDom("#navbarContainer", domString);
+  document
+    .getElementById("userDropdown")
+    .addEventListener("change", renderUser);
 };
+
 export { renderCards, renderForm, renderToDom, renderNavbar };

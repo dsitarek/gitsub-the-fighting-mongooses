@@ -15,22 +15,8 @@ const newProjectForm = () => {
                </div>
                <div class="form-group col-md-6">
                  <label for="inputProjectDescription">Description(optional)</label>
-                 <input type="text" class="form-control" id="inputProjectDescription" placeholder="Project Description">
+                 <textarea rows="5" cols="50" class="form-control" id="inputProjectDescription" placeholder="Project Description"></textarea>
                </div>
-               <div class="form-group col-md-6">
-               <label for="inputProjectTemplate">Project Template</label>
-                <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="inputProjectTemplate"  data-bs-toggle="dropdown" aria-expanded="false">
-                    Template: None
-                </button>
-                    <ul class="dropdown-menu" aria-labelledby="inputProjectTemplate">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                    </div>
-                 </div>
               </div>
               <button class="btn btn-success" type="submit" id="createProjectBtnSubmit">Create project</button>
             </form>
@@ -40,12 +26,9 @@ const newProjectForm = () => {
 
 // function to loop through project arrray and display project cards
 const projectBuilder = (array) => {
-    let proCardHeader = ``;
-
-    let proCard = "";
+    let proCard = `<div class="card-header">Projects List</div>`;
     array.forEach((project, i) => {
-        proCard += `<div class="card-header">Projects List</div>
-                    <div class="card">
+        proCard += `<div class="card">
                     <div class="card-body">
                         <h5 class="card-title">${project.proName}</h5>
                         <p class="card-text">${project.proDescription}</p>
@@ -53,9 +36,7 @@ const projectBuilder = (array) => {
                     </div>
                     </div>`;
     });
-
-    renderToDom("#cardContainer", proCard)
-
+    renderToDom("#cardContainer", proCard);
 };
 
 //function to run for when the button is clicked

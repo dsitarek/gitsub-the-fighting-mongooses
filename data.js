@@ -7,4 +7,4 @@ export const repoArray = [
     name: "getting-started-with-open-source",
     description: "This is a presentation on Getting Started With Open Source",
   },
-  ];
+];

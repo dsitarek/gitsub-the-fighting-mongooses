@@ -1,5 +1,5 @@
 console.log("Team Project")
-import { renderToDom } from "./common-dom-functions.js";
+import { renderNavbar, renderToDom } from "./common-dom-functions.js";
 
 //empty array to store projects entered
 const projects = [];
@@ -71,7 +71,7 @@ const submitProjectForm = (event) => {
     const projectDetails = {
         proName: document.querySelector("#inputProjectName").value,
         proDescription: document.querySelector("#inputProjectDescription").value,
-        proTemplate: document.querySelector("#inputProjectTemplate").value
+        // proTemplate: document.querySelector("#inputProjectTemplate").value
     }
     projects.push(projectDetails);
     projectBuilder(projects);
@@ -88,5 +88,6 @@ const eventListener = () => {
 const loadPage = () => {
     newProjectForm();
     eventListener();
+    renderNavbar();
 };
 loadPage();

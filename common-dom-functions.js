@@ -24,6 +24,7 @@ const renderForm = (formString, listenFunc, formId) => {
 
   renderToDom("#formContainer", domString);
   formSubmitListener(formId, listenFunc);
+<<<<<<< HEAD
 };
 
 const collectUsers = (userObj) => {
@@ -48,6 +49,8 @@ const renderUser = () => {
 
   renderToDom("#userContainer", domString);
   console.log(userSelected);
+=======
+>>>>>>> main
 };
 
 const renderNavbar = () => {

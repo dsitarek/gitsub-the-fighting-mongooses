@@ -13,6 +13,7 @@ export const users = {
   m0nica: {
     name: "Monica Powell",
     username: "M0nica",
+    img: "img/monicapowell.jpg",
     bio: "Building tech to elevate people.Founder of React Ladies a community for React JS developers",
     stats: {
       following: 1800,
@@ -30,6 +31,7 @@ export const users = {
   jasonbourne: {
     name: "Jason Bourne",
     username: "jasonbourne",
+    img: "img/jasonbourne.jpg",
     bio: "Rogue CIA assassin",
     stats: {
       following: 100000,
@@ -47,6 +49,7 @@ export const users = {
   batman: {
     name: "Bruce Wayne",
     username: "batman",
+    img: "img/batman.jpeg",
     bio: "Bilionaire, Super hero",
     stats: {
       following: 999999,

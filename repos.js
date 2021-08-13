@@ -1,8 +1,8 @@
 import {
-  renderToDom,
   renderForm,
   renderCards,
   renderNavbar,
+  renderUser,
 } from "./common-dom-functions.js";
 import { repoArray } from "./data.js";
 import { repoCardString, repoFormString } from "./repo-strings.js";
@@ -28,6 +28,7 @@ const init = () => {
   renderCards(repoArray, repoCardString);
   renderForm(repoFormString, addRepo, "#addRepoForm");
   renderNavbar();
+  renderUser();
 };
 
 init();

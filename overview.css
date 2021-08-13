@@ -23,6 +23,15 @@ body {
     margin-bottom: 3em;
     padding: 1em;
   }
+
+ /*  .cardContainer2{
+    border: 1px solid black;
+    min-width: 20em;
+    min-height: 30em;
+    margin-bottom: 3em;
+    padding: 1em;
+  } */
+
   
   .form-container {
     display: flex;
@@ -62,4 +71,3 @@ body {
   .list-group {
     list-style-type: none;
   }
-  

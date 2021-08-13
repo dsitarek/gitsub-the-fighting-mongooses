@@ -17,11 +17,8 @@ const pinCardString = (obj, index) => {
   return `<div class="card" id = "card-${index}" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${obj.name}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">${obj.description}</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
+    <p class="card-text">${obj.description}</p>
+   </div>
 </div>
 
 `};

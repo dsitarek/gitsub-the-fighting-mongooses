@@ -22,7 +22,7 @@ const addRepo = (event) => {
 
 const init = () => {
   renderCards(repoArray, repoCardString);
-  renderForm(repoFormString, addRepo);
+  renderForm(repoFormString, addRepo, "#addRepoForm");
   renderNavbar();
 };
 

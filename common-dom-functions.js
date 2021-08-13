@@ -21,7 +21,7 @@ const renderForm = (formString, listenFunc, formId) => {
     const domString = formString;
 
     renderToDom("#formContainer", domString);
-    formSubmitListener("formId", listenFunc);
+    formSubmitListener(formId, listenFunc);
 };
 
 const renderNavbar = () => {

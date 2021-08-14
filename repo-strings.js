@@ -1,11 +1,11 @@
 const repoFormString = `<div><h3>Add a Repository<h3></div><form id="addRepoForm">
     <div class="mb-3">
-      <label for="addRepo" class="form-label">Repository Name</label>
+      <label for="addRepo" class="form-label">Repository Name<span>*</span></label>
       <input required type="text" class="form-control" id="addRepo">
     </div>
     <div class="mb-3">
       <label for="addRepoDescription" class="form-label">Description(optional)</label>
-      <input required type="text" class="form-control" id="addRepoDescription">
+      <textarea rows="5" cols="80" class="form-control" id="addRepoDescription"></textarea>
     </div>
     <button type="submit" class="btn btn-primary" id="addRepoBtn">Create Repository</button>
   </form>`;

@@ -47,7 +47,7 @@ const renderUser = () => {
       <button type="button" class="btn btn-secondary"><img class="heart-icon" src="img/heart.png">Sponsor</button>
       <button type="button" class="btn btn-secondary">. . .</button>
     </div>
-    <div class="card-followers"><img class="follower-icon" src="img/followers.png"><b>${users[userSelected].stats.followers}</b> Followers • <b>${users[userSelected].stats.following}</b> Following • <b>${users[userSelected].stats.favorites}</b> <img class="favorite-icon" src="img/favorite.png">
+    <div class="card-followers"><img class="follower-icon" src="img/followers.png"><b>${users[userSelected].stats.followers}</b> <span>Followers •</span> <b>${users[userSelected].stats.following}</b> <span>Following •</span> <img class="favorite-icon" src="img/favorite.png"><b>${users[userSelected].stats.favorites}</b>
     </div>
     <div class="card-info"><h6><img class="social-icon" src="img/location.png">${users[userSelected].location}</h6><h6><img class="social-icon" src="img/email.png">${users[userSelected].email}</h6><h6><img class="social-icon" src="img/website.png">${users[userSelected].website}</h6><h6><img class="social-icon" src="img/twitter.png">${users[userSelected].twitter}</h6>
     </div>

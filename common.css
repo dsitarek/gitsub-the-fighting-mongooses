@@ -94,6 +94,10 @@ h5 {
   margin: 2em 0 2.5em 0;
 }
 
+.card-followers span {
+  color: #9aa3addc;
+}
+
 .card-img-top {
   max-width: 85%;
   align-self: center;
@@ -108,13 +112,13 @@ h5 {
 
 .follower-icon {
   max-width: 1em;
-  margin-top: -0.5%;
-  margin-right: 0.2em;
+  margin-top: -1%;
+  margin-right: 0.3em;
 }
 
 .favorite-icon {
   max-width: 1em;
-  margin-top: -2%;
+  margin: -2% 1% 0 0.1em;
 }
 
 .social-icon {
@@ -162,12 +166,19 @@ h5 {
 }
 
 .form-container form {
-  width: 18em;
+  width: 30em;
   margin: 0.5em;
+  color: #c9d1d9;
 }
 
 .form-control {
   background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+.form-control:focus {
+  background-color: #0d1117;
+  color: #c9d1d9;
 }
 
 .footer-container {

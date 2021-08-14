@@ -18,6 +18,7 @@ const addRepo = (event) => {
   });
 
   renderCards(repoArray, repoCardString);
+  document.getElementById("addRepoForm").reset();
 };
 
 const renderUserDropdown = () => {

@@ -22,3 +22,6 @@ a:hover {
   font-weight: 400;
   color: #8b949eaf;
 }
+.form-label span {
+  color: red;
+}

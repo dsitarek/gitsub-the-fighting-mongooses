@@ -31,11 +31,12 @@ const packages = [
       "A single place for your team to manage Docker images and decide who can see and access your images",
   },
 ];
+//Render to DOM function. This is a universal function for same purpose. 
 const renderToDom = (divId, textToPrint) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = textToPrint;
 };
-
+//This builds the card. It is a universal function for same purpose. Remember to use the name of the card container when you render to DOM.
 const packageBuilder = (packagesArray) => {
   let domstring = "";
   packagesArray.forEach((packages, i) => {
@@ -51,6 +52,7 @@ const packageBuilder = (packagesArray) => {
 
   renderToDom("#cardContainer", domstring);
 };
+//This builds the form, use a bootstrap card, and render the form to the DOM using the name of the container as written in the html file.
 const packageForm = () => {
   const domstring = `
    <form id="packageFormForm">
@@ -70,7 +72,7 @@ const packageForm = () => {
    `;
   renderToDom("#formContainer", domstring);
 };
-
+//Adds a new package to the array when the submit button is clicked. Remember to use the id of the form imput, in this case, it is "#enterPackage" and "#enterdescription"
 const handleFormSubmit = (event) => {
   event.preventDefault();
 
@@ -80,21 +82,66 @@ const handleFormSubmit = (event) => {
   };
   packages.push(newPackage);
   packageBuilder(packages);
+  document.querySelector("form").reset();
 
   console.log(packages);
 };
-
+//BUTTON EVENTS on the form. Use the form id in the query selector, and use the button id in the EVENT LISTENER. Also send the event to the function(s) that needs a button event. 
 const packageFormEvents = () => {
   const packageFormElement = document.querySelector("#packageFormForm");
   packageFormElement.addEventListener("submit", (event) =>
     handleFormSubmit(event)
   );
 };
-
+const renderFooter = () => {
+    const domString = `<ul class="nav justify-content-center">
+    <li class="footer-item">
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+  </ul>`;
+  
+    renderToDom("#footerContainer", domString);
+  };
 const initialize = () => {
   //This starts the app
-
   renderNavbar();
+  renderFooter();
   packageBuilder(packages);
   packageForm();
   packageFormEvents();

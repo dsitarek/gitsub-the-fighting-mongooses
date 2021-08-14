@@ -1,4 +1,5 @@
-import { renderNavbar } from "./common-dom-functions.js";
+import { renderNavbar, renderUser} from "./common-dom-functions.js";
+
 const packages = [
   {
     name: "Docker",
@@ -40,7 +41,7 @@ const renderToDom = (divId, textToPrint) => {
 const packageBuilder = (packagesArray) => {
   let domstring = "";
   packagesArray.forEach((packages, i) => {
-    domstring += `<div class="card" style="width: 18rem;">
+    domstring += `<div class="package-card" style="width: 18rem;">
      <div class="card-body">
        <h5 class="card-title">${packages.name}</h5>
        <p class="card-text">${packages.description}</p>
@@ -95,44 +96,42 @@ const packageFormEvents = () => {
 };
 const renderFooter = () => {
     const domString = `<ul class="nav justify-content-center">
-    <li class="footer-item">
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    
+    <li class="nav-item">
+      <a class="nav-link active" href="https://docs.github.com/en/github/site-policy/github-terms-of-service">Terms</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="#">Active</a>
+      <a class="nav-link" href="https://docs.github.com/en/github/site-policy/github-privacy-statement">Privacy</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="https://github.com/security">Security</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="https://www.githubstatus.com/">Status</a></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="https://support.github.com/">Help</a>
+    </li>
+    <li>
+      <img class="github-icon" src="img/github.png">
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="https://support.github.com/">Contact Github</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      <a class="nav-link" href="https://github.com/pricing">Pricing</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="https://docs.github.com/en">API</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="https://services.github.com/">Training</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="https://github.blog/">Blog</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="https://github.com/about">About</a>
     </li>
   </ul>`;
   
@@ -145,5 +144,6 @@ const initialize = () => {
   packageBuilder(packages);
   packageForm();
   packageFormEvents();
+  renderUser();
 };
 export { initialize };

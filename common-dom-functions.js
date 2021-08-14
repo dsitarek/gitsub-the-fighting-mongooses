@@ -40,9 +40,25 @@ const renderUser = () => {
   <img src="${users[userSelected].img}" class="card-img-top" alt="...">
   <div class="card-body">
     <h4>${users[userSelected].name}</h4>
-    <h6>${users[userSelected].username}<h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h6 class="username">${users[userSelected].username}<h6>
+    <p>${users[userSelected].bio}</p>
+    <div class="card-btn-container">
+      <button type="button" class="btn btn-secondary">Follow</button>
+      <button type="button" class="btn btn-secondary"><img class="heart-icon" src="img/heart.png">Sponsor</button>
+      <button type="button" class="btn btn-secondary">. . .</button>
+    </div>
+    <div class="card-followers"><img class="follower-icon" src="img/followers.png"><b>${users[userSelected].stats.followers}</b> Followers • <b>${users[userSelected].stats.following}</b> Following • <b>${users[userSelected].stats.favorites}</b> <img class="favorite-icon" src="img/favorite.png">
+    </div>
+    <div class="card-info"><h6><img class="social-icon" src="img/location.png">${users[userSelected].location}</h6><h6><img class="social-icon" src="img/email.png">${users[userSelected].email}</h6><h6><img class="social-icon" src="img/website.png">${users[userSelected].website}</h6><h6><img class="social-icon" src="img/twitter.png">${users[userSelected].twitter}</h6>
+    </div>
+    <hr>
+    <div class="user-highlights"><h5>Highlights</h5><ul><li>${users[userSelected].highlights[0]}</li><li>${users[userSelected].highlights[1]}</li><li>${users[userSelected].highlights[2]}</li>
+    </div>
+    <hr>
+    <div class="user-organizations"><h5>Organizations</h5><img class="user-org" src="${users[userSelected].organizations[0]}">
+    </div>
+    <hr>
+    <div class="user-sponsors"><h5>Sponsors</h5><img class="sponsor-img" src="${users[userSelected].sponsors[0]}"></div>
   </div>
 </div>`;
 
@@ -52,9 +68,8 @@ const renderUser = () => {
 
 const renderNavbar = () => {
   let userString = collectUsers(users);
-  const domString = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  const domString = `<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

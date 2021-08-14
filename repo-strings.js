@@ -12,7 +12,7 @@ const repoFormString = `<div><h3>Add a Repository<h3></div><form id="addRepoForm
 
 const repoCardString = (obj, index) => {
   return `<div class="repo-list-item"id="repo-${index}">
-            <div class="added-repo"><h5>${obj.name}</h5><p>${obj.description}</p></div>
+            <div class="added-repo"><a href="#">${obj.name}</a><p>${obj.description}</p></div>
           </div>`;
 };
 

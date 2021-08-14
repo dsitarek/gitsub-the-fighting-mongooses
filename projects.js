@@ -1,5 +1,5 @@
 console.log("Team Project")
-import { renderNavbar, renderToDom, renderUser } from "./common-dom-functions.js";
+import { renderFooter, renderNavbar, renderToDom, renderUser } from "./common-dom-functions.js";
 
 
 const projects = [{
@@ -77,5 +77,6 @@ const loadPage = () => {
     renderNavbar();
     renderUser();
     projectBuilder(projects);
+    renderFooter();
 };
 loadPage();

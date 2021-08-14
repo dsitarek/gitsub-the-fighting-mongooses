@@ -1,5 +1,6 @@
-import { renderForm, renderToDom, renderCards, renderNavbar} from "./common-dom-functions.js"
+import { renderForm, renderUser, renderCards, renderNavbar} from "./common-dom-functions.js"
 import {repoArray} from "./data.js"
+
 //const pinArray = []; //why am I creating this array
 
 //This creates the bones of my form with the button, called pinFormString 
@@ -16,9 +17,9 @@ const pinFormString = `<form id = "pinForm">
 
  //This function happens when you type in the textboxes ..use(obj, index) for the name & description 
 const pinCardString = (obj, index) => {
-  return `<div class="card" id = "card-${index}" style="width: 18rem;">
+  return `<div class="pin-card" id = "card-${index}" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">${obj.name}</h5>
+    <a href="#" class="card-title">${obj.name}</a>
     <p class="card-text">${obj.description}</p>
    </div>
 </div>
@@ -45,6 +46,7 @@ const init = () => {
   renderForm(pinFormString, addPinnedRepo, "#pinForm")   //shared function- Start or Initiate: my form, the Event, My (Form) ID 
   renderCards(repoArray, pinCardString) //shared funciton     my (obj, index)
   renderNavbar()
+  renderUser()
 };
 init();
 

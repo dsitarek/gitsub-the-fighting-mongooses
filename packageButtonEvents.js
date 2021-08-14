@@ -1,4 +1,4 @@
-import { renderNavbar, renderUser} from "./common-dom-functions.js";
+import { renderNavbar, renderUser, renderFooter} from "./common-dom-functions.js";
 
 const packages = [
   {
@@ -94,49 +94,7 @@ const packageFormEvents = () => {
     handleFormSubmit(event)
   );
 };
-const renderFooter = () => {
-    const domString = `<ul class="nav justify-content-center">
-    
-    <li class="nav-item">
-      <a class="nav-link active" href="https://docs.github.com/en/github/site-policy/github-terms-of-service">Terms</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="https://docs.github.com/en/github/site-policy/github-privacy-statement">Privacy</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="https://github.com/security">Security</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="https://www.githubstatus.com/">Status</a></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="https://support.github.com/">Help</a>
-    </li>
-    <li>
-      <img class="github-icon" src="img/github.png">
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="https://support.github.com/">Contact Github</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="https://github.com/pricing">Pricing</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="https://docs.github.com/en">API</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="https://services.github.com/">Training</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="https://github.blog/">Blog</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="https://github.com/about">About</a>
-    </li>
-  </ul>`;
-  
-    renderToDom("#footerContainer", domString);
-  };
+
 const initialize = () => {
   //This starts the app
   renderNavbar();

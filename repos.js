@@ -1,8 +1,8 @@
 import {
-  renderToDom,
   renderForm,
   renderCards,
   renderNavbar,
+  renderUser,
 } from "./common-dom-functions.js";
 import { repoArray } from "./data.js";
 import { repoCardString, repoFormString } from "./repo-strings.js";
@@ -18,12 +18,18 @@ const addRepo = (event) => {
   });
 
   renderCards(repoArray, repoCardString);
+  document.getElementById("addRepoForm").reset();
+};
+
+const renderUserDropdown = () => {
+  document.getElementById("userContainer").in;
 };
 
 const init = () => {
   renderCards(repoArray, repoCardString);
   renderForm(repoFormString, addRepo, "#addRepoForm");
   renderNavbar();
+  renderUser();
 };
 
 init();

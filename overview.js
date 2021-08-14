@@ -1,8 +1,9 @@
-import { renderForm, renderToDom, renderCards, renderNavbar} from "./common-dom-functions.js"
+import { renderForm, renderUser, renderCards, renderNavbar} from "./common-dom-functions.js"
 import {repoArray} from "./data.js"
+
 //const pinArray = []; //why am I creating this array
 
-//Creating my form 
+//This creates the bones of my form with the button, called pinFormString 
 const pinFormString = `<form id = "pinForm">
  <form>
   <label for="pinName">Pinned Repo Name:</label><br>
@@ -13,36 +14,39 @@ const pinFormString = `<form id = "pinForm">
   </form>
   `;
 
+
+ //This function happens when you type in the textboxes ..use(obj, index) for the name & description 
 const pinCardString = (obj, index) => {
-  return `<div class="card" id = "card-${index}" style="width: 18rem;">
+  return `<div class="pin-card" id = "card-${index}" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">${obj.name}</h5>
+    <a href="#" class="card-title">${obj.name}</a>
     <p class="card-text">${obj.description}</p>
    </div>
 </div>
 
 `};
- // To do: style this card 
 
-//this is the input to the form 
-const addPinnedRepo = (event) => {
-  event.preventDefault();
-  const pinName = document.getElementById("pinName").value;
-  const pinDescription = document.getElementById("pinDescription").value;
+//this creates the event /preventDefault -prevents the submittion of the form 
+const addPinnedRepo = (event) => {      
+  event.preventDefault(); //stops clicking of the link 
+  const pinName = document.getElementById("pinName").value; // NAME used almost every time you want to manipulate, or get info from, an element on your document.
+  const pinDescription = document.getElementById("pinDescription").value; //DESCRIPTION used almost every time you want to manipulate, or get info from, an element on your document.
 
+  //Defining the name & description 
   const pinnedRepoObject = {
     name: pinName,
     description: pinDescription
   };
-  repoArray.push(pinnedRepoObject);
-  renderCards(repoArray, pinCardString)
+  repoArray.push(pinnedRepoObject);  //creates card after card after card 
+  renderCards(repoArray, pinCardString) //now displays the cards after card 
 };
 
 
 const init = () => {
-  renderForm(pinFormString, addPinnedRepo, "#pinForm")
-  renderCards(repoArray, pinCardString)
+  renderForm(pinFormString, addPinnedRepo, "#pinForm")   //shared function- Start or Initiate: my form, the Event, My (Form) ID 
+  renderCards(repoArray, pinCardString) //shared funciton     my (obj, index)
   renderNavbar()
+  renderUser()
 };
 init();
 

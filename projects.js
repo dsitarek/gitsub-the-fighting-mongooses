@@ -1,8 +1,14 @@
 console.log("Team Project")
-import { renderNavbar, renderToDom } from "./common-dom-functions.js";
+import { renderNavbar, renderToDom, renderUser } from "./common-dom-functions.js";
 
-//empty array to store projects entered
-const projects = [];
+
+const projects = [{
+    proName: "Example 1",
+    proDescription: "No description"
+},{
+    proName: "my-goals",
+    proDescription: "Goals for NSS Bootcamp"
+}];
 
 //function for the project form
 const newProjectForm = () => {
@@ -24,29 +30,28 @@ const newProjectForm = () => {
     renderToDom("#formContainer", formString)
 };
 
-// function to loop through project arrray and display project cards
+// function to display project cards
 const projectBuilder = (array) => {
     let proCard = `<div class="card-header">Projects List</div>`;
     array.forEach((project, i) => {
         proCard += `<div class="card">
                     <div class="card-body">
                         <h5 class="card-title">${project.proName}</h5>
-                        <p class="card-text">${project.proDescription}</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p class="card-text">${project.proDescription}</p
                     </div>
                     </div>`;
     });
     renderToDom("#cardContainer", proCard);
 };
 
-//function to run for when the button is clicked
+//function for buttonclick
 const buttonEvent = (event) => {
     if (event.target.id === "createProjectBtnSubmit" || event.target.id === "formContainer") {
         submitProjectForm();
     }
 };
 
-//Form events for storing the project form inputs and use to display as cards
+//Form events
 const submitProjectForm = (event) => {
     event.preventDefault();
     const projectDetails = {
@@ -70,5 +75,7 @@ const loadPage = () => {
     newProjectForm();
     eventListener();
     renderNavbar();
+    renderUser();
+    projectBuilder(projects);
 };
 loadPage();

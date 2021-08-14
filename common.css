@@ -197,7 +197,7 @@ h5 {
 }
 
 .footer-container {
-  min-width: 70em;
+  width: 100%;
   min-height: 5em;
   background-color: #0d1117;
   border: 1px solid #30363d;
@@ -205,12 +205,20 @@ h5 {
   margin: 4em 3em 0 3em;
 }
 
+.github-icon {
+  max-width: 1em;
+}
+
+
 .list-group {
   list-style-type: none;
 }
 
+<<<<<<< HEAD
 @media (max-width: 1000px) {
   body {
     max-width: 100%;
   }
 }
+=======
+>>>>>>> main

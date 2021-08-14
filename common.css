@@ -25,6 +25,11 @@ body {
   border-radius: 6px;
 }
 
+.btn-primary:hover {
+  background-color: #2ea043;
+  border-color: #2ea043;
+}
+
 .navbar {
   margin-bottom: 2em;
   background-color: #0d1117;
@@ -206,19 +211,10 @@ h5 {
 }
 
 .github-icon {
-  max-width: 1em;
+  max-width: 1.5em;
+  margin-top: 0.5em;
 }
-
 
 .list-group {
   list-style-type: none;
 }
-
-<<<<<<< HEAD
-@media (max-width: 1000px) {
-  body {
-    max-width: 100%;
-  }
-}
-=======
->>>>>>> main

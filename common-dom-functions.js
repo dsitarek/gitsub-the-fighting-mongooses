@@ -149,4 +149,11 @@ const renderFooter = () => {
   renderToDom("#footerContainer", domString);
 };
 
-export { renderCards, renderForm, renderToDom, renderNavbar, renderUser, renderFooter };
+export {
+  renderCards,
+  renderForm,
+  renderToDom,
+  renderNavbar,
+  renderUser,
+  renderFooter,
+};

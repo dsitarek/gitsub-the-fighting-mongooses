@@ -3,6 +3,7 @@ import {
   renderCards,
   renderNavbar,
   renderUser,
+  renderFooter,
 } from "./common-dom-functions.js";
 import { repoArray } from "./data.js";
 import { repoCardString, repoFormString } from "./repo-strings.js";
@@ -30,6 +31,7 @@ const init = () => {
   renderForm(repoFormString, addRepo, "#addRepoForm");
   renderNavbar();
   renderUser();
+  renderFooter();
 };
 
 init();

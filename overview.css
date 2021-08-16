@@ -6,5 +6,11 @@
 }
 
 .pin-card a {
+  color: #58a6ff;
   text-decoration: none;
+}
+
+.pin-card a:hover {
+  color: #58a6ff;
+  text-decoration: underline;
 }

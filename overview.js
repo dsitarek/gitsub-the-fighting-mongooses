@@ -1,4 +1,4 @@
-import { renderForm, renderUser, renderCards, renderNavbar} from "./common-dom-functions.js"
+import { renderForm, renderUser, renderCards, renderNavbar, renderFooter} from "./common-dom-functions.js"
 import {repoArray} from "./data.js"
 
 //const pinArray = []; //why am I creating this array
@@ -47,6 +47,7 @@ const init = () => {
   renderCards(repoArray, pinCardString) //shared funciton     my (obj, index)
   renderNavbar()
   renderUser()
+  renderFooter()
 };
 init();
 

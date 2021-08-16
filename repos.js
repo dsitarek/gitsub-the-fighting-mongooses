@@ -4,7 +4,10 @@ import {
   renderNavbar,
   renderUser,
   renderFooter,
+<<<<<<< HEAD
   renderToDom,
+=======
+>>>>>>> djs-repo-data
 } from "./common-dom-functions.js";
 import { repoArray, users } from "./data.js";
 import { repoCardString, repoFormString } from "./repo-strings.js";
@@ -78,10 +81,14 @@ const init = () => {
   renderForm(repoFormString, addRepo, "#addRepoForm");
   renderNavbar();
   renderUser();
+<<<<<<< HEAD
   renderSearch();
   renderFooter();
   searchListener();
   favoriteListener();
+=======
+  renderFooter();
+>>>>>>> djs-repo-data
 };
 
 init();

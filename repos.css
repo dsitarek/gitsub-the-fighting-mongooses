@@ -5,10 +5,15 @@
   text-justify: inter-word;
 }
 
+.added-repo p {
+  font-size: 0.85em;
+}
+
 a {
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
   color: #58a6ff;
+  font-size: 1.2em;
 }
 
 a:hover {

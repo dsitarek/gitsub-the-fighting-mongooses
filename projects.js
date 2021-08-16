@@ -12,7 +12,9 @@ const projects = [{
 
 //function for the project form
 const newProjectForm = () => {
-    let formString = `<form>
+    let formString = 
+    `<h1>Create Project</h1>
+    <form>
             <div class="mb-3">
                 <label for="inputProjectName" class="name-label">Project board name<span>*</span></label>
                 <input type="text" required class="form-control" id="inputProjectName" placeholder="Project board name">
@@ -22,7 +24,7 @@ const newProjectForm = () => {
                 <textarea rows="5" cols="50" class="form-control" id="inputProjectDescription" placeholder="Project Description"></textarea>
             </div>
             <button class="btn btn-primary" type="submit" id="createProjectBtnSubmit">Create project</button>
-            </form>`
+    </form>`
     renderToDom("#formContainer", formString)
 };
 

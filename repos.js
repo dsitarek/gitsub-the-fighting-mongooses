@@ -4,6 +4,7 @@ import {
   renderNavbar,
   renderUser,
   renderFooter,
+  renderToDom,
 } from "./common-dom-functions.js";
 import { repoArray, users } from "./data.js";
 import { repoCardString, repoFormString } from "./repo-strings.js";
@@ -25,6 +26,13 @@ const addRepo = (event) => {
 
 const searchListener = (event) => {
   document.getElementById("repoSearch").addEventListener("input", searchRepo);
+};
+
+const renderSearch = () => {
+  const domString = `<label for="repoSearch">Search Repositories: </label>
+  <input type="text" id="repoSearch" /><button class="btn btn-secondary" id="filterFavorite">Filter Favorites</button>`;
+
+  renderToDom("#searchContainer", domString);
 };
 
 const searchRepo = () => {
@@ -49,7 +57,6 @@ const favoriteListener = () => {
 
 const changeFavorite = (event) => {
   let target = event.target.id;
-  console.log(target);
   if (target.startsWith("favoriteBtn") === true) {
     const splitTarget = target.split("-");
     const [a, b] = splitTarget;
@@ -59,7 +66,11 @@ const changeFavorite = (event) => {
 const favoriteBtn = (index) => {
   if (repoArray[index].favorite === "img/favorite-unclick.png") {
     repoArray[index].favorite = "img/favorite-click.png";
-  } else repoArray[index].favorite = "img/favorite-unclick.png";
+  } else {
+    repoArray[index].favorite = "img/favorite-unclick.png";
+  }
+
+  searchRepo();
 };
 
 const init = () => {
@@ -67,6 +78,7 @@ const init = () => {
   renderForm(repoFormString, addRepo, "#addRepoForm");
   renderNavbar();
   renderUser();
+  renderSearch();
   renderFooter();
   searchListener();
   favoriteListener();

@@ -1,3 +1,4 @@
+import { repoArray } from "./data.js";
 const repoFormString = `<div><h3>Add a Repository<h3></div><form id="addRepoForm">
     <div class="mb-3">
       <label for="addRepo" class="form-label">Repository Name<span>*</span></label>
@@ -13,6 +14,7 @@ const repoFormString = `<div><h3>Add a Repository<h3></div><form id="addRepoForm
 const repoCardString = (obj, index) => {
   return `<div class="repo-list-item"id="repo-${index}">
             <div class="added-repo"><a href="#">${obj.name}</a><p>${obj.description}</p></div>
+            <div class="favorite-repo"><button class="favorite-btn"><img id="favoriteBtn-${index}" src="${repoArray[index].favorite}"></button></div>
           </div>`;
 };
 

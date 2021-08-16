@@ -63,7 +63,6 @@ const renderUser = () => {
 </div>`;
 
   renderToDom("#userContainer", domString);
-  console.log(userSelected);
 };
 
 const renderNavbar = () => {
@@ -149,4 +148,11 @@ const renderFooter = () => {
   renderToDom("#footerContainer", domString);
 };
 
-export { renderCards, renderForm, renderToDom, renderNavbar, renderUser, renderFooter };
+export {
+  renderCards,
+  renderForm,
+  renderToDom,
+  renderNavbar,
+  renderUser,
+  renderFooter,
+};

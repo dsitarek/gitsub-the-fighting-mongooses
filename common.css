@@ -142,9 +142,9 @@ h5 {
 
 .card-container {
   min-width: 20em;
-  min-height: 30em;
+  min-height: 10em;
   margin-bottom: 3em;
-  padding: 1em;
+  padding: -0.5em;
 }
 
 .card {

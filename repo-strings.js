@@ -18,4 +18,11 @@ const repoCardString = (obj, index) => {
           </div>`;
 };
 
-export { repoCardString, repoFormString };
+const favCardString = (obj, index, arr) => {
+  return `<div class="repo-list-item"id="repo-${index}">
+            <div class="added-repo"><a href="#">${obj.name}</a><p>${obj.description}</p></div>
+            <div class="favorite-repo"><button class="favorite-btn"><img id="favoriteBtn-${index}" src="${arr[index].favorite}"></button></div>
+          </div>`;
+};
+
+export { repoCardString, repoFormString, favCardString };

@@ -38,7 +38,7 @@ const renderUser = () => {
   const userSelected = document.getElementById("userDropdown").value;
   const domString = `<div class="card">
   <img src="${users[userSelected].img}" class="card-img-top" alt="...">
-  <div class="card-body">
+  <div class="card-body-user">
     <h4>${users[userSelected].name}</h4>
     <h6 class="username">${users[userSelected].username}<h6>
     <p>${users[userSelected].bio}</p>

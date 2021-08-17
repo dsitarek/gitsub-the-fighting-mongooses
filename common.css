@@ -85,12 +85,12 @@ body {
   margin: -0.5em 0 1em 0;
 }
 
-.card-body {
+.card-body-user {
   margin-left: 2em;
   font-weight: 500;
 }
 
-.card-body p {
+.card-body-user p {
   max-width: 80%;
 }
 

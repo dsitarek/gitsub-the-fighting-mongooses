@@ -5,10 +5,15 @@
   text-justify: inter-word;
 }
 
+.added-repo p {
+  font-size: 0.85em;
+}
+
 a {
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
   color: #58a6ff;
+  font-size: 1.2em;
 }
 
 a:hover {
@@ -17,11 +22,48 @@ a:hover {
 }
 
 .repo-list-item {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
   border-bottom: 1px solid rgba(85, 84, 84, 0.349);
   margin: 0.5em;
   font-weight: 400;
   color: #8b949eaf;
 }
+
+.favorite-btn {
+  margin-right: 0.5em;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.favorite-btn img {
+  width: 2em;
+}
+
 .form-label span {
   color: red;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-container input {
+  width: 30em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  border: 1px solid white;
+  border-radius: 6px;
+}
+
+.search-container:focus {
+  background-color: #0d1117;
+  color: #c9d1d9;
 }

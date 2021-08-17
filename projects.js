@@ -1,52 +1,55 @@
 console.log("Team Project")
-import { renderNavbar, renderToDom } from "./common-dom-functions.js";
+import { renderFooter, renderNavbar, renderToDom, renderUser } from "./common-dom-functions.js";
 
-//empty array to store projects entered
-const projects = [];
+
+const projects = [{
+    proName: "Example 1",
+    proDescription: "No description"
+},{
+    proName: "my-goals",
+    proDescription: "Goals for NSS Bootcamp"
+}];
 
 //function for the project form
 const newProjectForm = () => {
-    let formString = ` 
-             <form>
-             <div class="form-row">
-               <div class="form-group col-md-6">
-                 <label for="inputProjectName">Project board name</label>
-                 <input type="text" required class="form-control" id="inputProjectName" placeholder="Project board name">
-               </div>
-               <div class="form-group col-md-6">
-                 <label for="inputProjectDescription">Description(optional)</label>
-                 <textarea rows="5" cols="50" class="form-control" id="inputProjectDescription" placeholder="Project Description"></textarea>
-               </div>
-              </div>
-              <button class="btn btn-success" type="submit" id="createProjectBtnSubmit">Create project</button>
-            </form>
-             `
+    let formString = 
+    `<h1>Create Project</h1>
+    <form>
+            <div class="mb-3">
+                <label for="inputProjectName" class="name-label">Project board name<span>*</span></label>
+                <input type="text" required class="form-control" id="inputProjectName" placeholder="Project board name">
+            </div>
+            <div class="mb-3">
+                <label for="inputProjectDescription">Description(optional)</label>
+                <textarea rows="5" cols="50" class="form-control" id="inputProjectDescription" placeholder="Project Description"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" id="createProjectBtnSubmit">Create project</button>
+    </form>`
     renderToDom("#formContainer", formString)
 };
 
-// function to loop through project arrray and display project cards
+// function to display project cards
 const projectBuilder = (array) => {
-    let proCard = `<div class="card-header">Projects List</div>`;
+    let proCard = `<div class="card-header">Projects List</div><div class="card-basket">`;
     array.forEach((project, i) => {
-        proCard += `<div class="card">
-                    <div class="card-body">
+        proCard += `
+                    <div class="project-card">
                         <h5 class="card-title">${project.proName}</h5>
                         <p class="card-text">${project.proDescription}</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
                     </div>`;
     });
+    proCard+=`</div>`
     renderToDom("#cardContainer", proCard);
 };
 
-//function to run for when the button is clicked
+//function for buttonclick
 const buttonEvent = (event) => {
     if (event.target.id === "createProjectBtnSubmit" || event.target.id === "formContainer") {
         submitProjectForm();
     }
 };
 
-//Form events for storing the project form inputs and use to display as cards
+//Form events
 const submitProjectForm = (event) => {
     event.preventDefault();
     const projectDetails = {
@@ -70,5 +73,8 @@ const loadPage = () => {
     newProjectForm();
     eventListener();
     renderNavbar();
+    renderUser();
+    projectBuilder(projects);
+    renderFooter();
 };
 loadPage();

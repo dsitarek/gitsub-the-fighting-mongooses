@@ -2,6 +2,7 @@
 
 body {
   margin: 0.5em;
+  min-width: 1000px;
   background-color: #090c10;
   color: #c9d1d9;
   font-family: "Roboto";
@@ -16,6 +17,17 @@ body {
   font-weight: 700;
   color: #c9d1d9;
   padding: 0.5em 1.3em 0.5em 1.3em;
+}
+
+.btn-primary {
+  background-color: #238636;
+  border-color: #2ea043;
+  border-radius: 6px;
+}
+
+.btn-primary:hover {
+  background-color: #2ea043;
+  border-color: #2ea043;
 }
 
 .navbar {
@@ -34,6 +46,14 @@ body {
 
 .navbar a:hover {
   color: #bec9d4;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #8b949e;
+}
+
+.navbar-light .navbar-toggler {
+  background-color: #8b949e;
 }
 
 .form-select {
@@ -142,9 +162,9 @@ h5 {
 
 .card-container {
   min-width: 20em;
-  min-height: 30em;
+  min-height: 10em;
   margin-bottom: 3em;
-  padding: 1em;
+  padding: -0.5em;
 }
 
 .card {
@@ -191,11 +211,10 @@ h5 {
 }
 
 .github-icon {
-  max-width: 1em;
+  max-width: 1.5em;
+  margin-top: 0.5em;
 }
-
 
 .list-group {
   list-style-type: none;
 }
-

@@ -3,12 +3,25 @@ import { renderFooter, renderNavbar, renderToDom, renderUser } from "./common-do
 
 
 const projects = [{
-    proName: "Example 1",
-    proDescription: "No description"
+    proName: "Product Cards",
+    proDescription: "From A to Z, all you need!"
 },{
-    proName: "my-goals",
-    proDescription: "Goals for NSS Bootcamp"
-}];
+    proName: "Sorting Hat",
+    proDescription: "Find your Hogwarts house!"
+},
+{
+    proName: "All you can eat Pies",
+    proDescription: "We custom make pies!"
+},
+{
+    proName: "Pet Adoption Home",
+    proDescription: "We also have Pet Dinosaurs!"
+},
+{
+    proName: "Team Hub",
+    proDescription: "Create your own repositories, projects and packages!"
+}
+];
 
 //function for the project form
 const newProjectForm = () => {

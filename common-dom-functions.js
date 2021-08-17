@@ -75,7 +75,7 @@ const renderNavbar = () => {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="overview.html">Overview</a>
+            <a class="nav-link" href="index.html">Overview</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="repos.html">Repos</a>

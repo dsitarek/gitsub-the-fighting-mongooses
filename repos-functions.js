@@ -98,7 +98,7 @@ const changeFavorite = (event) => {
 };
 const favoriteBtn = (index) => {
   const searchedRepo = document.getElementById("repoSearch").value;
-  if (searchedRepo.value === null) {
+  if (searchedRepo.value === undefined) {
     if (repoArray[index].favorite === "img/favorite-unclick.png") {
       repoArray[index].favorite = "img/favorite-click.png";
     } else {

@@ -23,6 +23,7 @@ const projects = [{
 }
 ];
 
+
 //function for the project form
 const newProjectForm = () => {
     let formString = 
@@ -41,6 +42,18 @@ const newProjectForm = () => {
     renderToDom("#formContainer", formString)
 };
 
+const search= () => {
+    const searchString =
+    `
+            <form class="d-flex">
+                <label for="searchSubmit" placeholder="Search all Projects" aria-label="Search"></label>
+                <button class="btn btn-outline-success" id="searchSubmit" type="submit">Search</button>
+            </form>
+        `
+    renderToDom("#searchContainer", searchString)
+};
+
+
 // function to display project cards
 const projectBuilder = (array) => {
     let proCard = `<div class="card-header">Projects List</div><div class="card-basket">`;
@@ -55,19 +68,26 @@ const projectBuilder = (array) => {
     renderToDom("#cardContainer", proCard);
 };
 
+const searchProjects = (proArray, proSearch) => {
+    return proArray.filter((probject) => probject.proName.includes(proSearch));
+};
+
 //function for buttonclick
 const buttonEvent = (event) => {
+    
     if (event.target.id === "createProjectBtnSubmit" || event.target.id === "formContainer") {
         submitProjectForm();
     }
+    
 };
+
 
 //Form events
 const submitProjectForm = (event) => {
     event.preventDefault();
     const projectDetails = {
         proName: document.querySelector("#inputProjectName").value,
-        proDescription: document.querySelector("#inputProjectDescription").value,
+        proDescription: document.querySelector("#inputProjectDescription").value
         // proTemplate: document.querySelector("#inputProjectTemplate").value
     }
     projects.push(projectDetails);
@@ -75,10 +95,26 @@ const submitProjectForm = (event) => {
     document.querySelector("form").reset();
 };
 
+
+
+const findSearch = (event) => {
+    event.preventDefault();
+    console.log(event);
+    proSearch: document.querySelector("#inputProjectSearch").value
+    
+    if (event.target.type === "submit") {
+    let searchedProjects = searchProjects(projects, proSearch);
+    projectBuilder(searchedProjects);
+    }
+    document.querySelector("form").reset();
+};
+
 //event listeners for the buttons
 const eventListener = () => {
     const formEl = document.querySelector("#formContainer");
     formEl.addEventListener("submit", submitProjectForm);
+    const searchEl = document.querySelector("#searchContainer");
+    searchEl.addEventListener("button", findSearch);
 };
 
 //function to hold all functions
@@ -88,6 +124,8 @@ const loadPage = () => {
     renderNavbar();
     renderUser();
     projectBuilder(projects);
+    search();
     renderFooter();
+    
 };
 loadPage();
